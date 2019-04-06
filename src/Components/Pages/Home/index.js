@@ -1,6 +1,7 @@
 import React from 'react';
-import Welcome from '../MainComponents/Welcome';
-import Nav from '../MainComponents/Nav'; 
+import Welcome from '../../MainComponents/Welcome';
+import Nav from '../../MainComponents/Nav'; 
+import './index.css'
 
 export default (props) => {
   return (
