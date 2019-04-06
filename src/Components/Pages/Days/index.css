@@ -1,0 +1,42 @@
+.days--container{
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  padding: 2rem;
+  background: rgba(0, 0, 0, .5);
+}
+
+.days--heading2{
+  color: white;
+  letter-spacing: .03rem;
+  font-size: 1.2rem;
+  margin-bottom: 1.3rem;
+  line-height: 150%;
+}
+
+.item--container{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.days--label{
+  font-size: 1rem;
+}
+.days--button{
+  padding: .7rem 1rem;
+  width: 40%;
+  border-radius: 5px;
+   background: #E2810F;
+  font-weight: bold;
+  border: none;
+  align-self: flex-end;
+  margin-top: 1.5rem
+}
+
+.days--input{
+  height: 1.5rem;
+  width: 1.5rem;
+}
