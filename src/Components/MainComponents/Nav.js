@@ -6,7 +6,7 @@ function Nav (props) {
   const {logout} = props
  return(
 <nav className='nav'>
-  <div className='logo'>BEFIT</div>
+  <h1 className='logo'>BEFIT</h1>
       <div className='links'>
         <NavLink to='/' >HOME</NavLink>
       {logout ==='true' ? (

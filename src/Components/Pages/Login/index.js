@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import Nav from '../MainComponents/Nav'
-import Input from '../MainComponents/Input'
-import Button from '../MainComponents/Button'
+import Nav from '../../MainComponents/Nav'
+import Input from '../../MainComponents/Input'
+import Button from '../../MainComponents/Button'
 import {Redirect} from 'react-router-dom'
+import './index.css'
 
 
 class Login extends Component{
@@ -35,8 +36,8 @@ class Login extends Component{
     return (
     <>
       <Nav logout={'false'}/>
-      <form onSubmit={this.handleSubmit}>
-        <h2>Login to your account</h2>
+      <form className='login-form' onSubmit={this.handleSubmit}>
+        <h2 className='login--heading'>Login to your account</h2>
         <Input onChange={this.handleChange} value={email} type='email' name='email' placeholder='Enter your email'/>
         <Input onChange={this.handleChange} value={password} type='password' name='password' placeholder='Enter your password'/>
         {loginError ? <span className='error' style={{color:'red', fontSize: 14}}>{loginError}</span>: null }
