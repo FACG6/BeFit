@@ -1,0 +1,72 @@
+
+.wrapper{
+  background: url('./Group.png');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.nav{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  height: 40px;
+}
+.links a {
+  text-decoration: none;
+  color: white;
+}
+
+.logo{
+  color: #E2810F;
+  letter-spacing: 2px;
+
+}
+
+.login-form{
+    padding: 1rem 2rem;
+    margin: 7rem auto;
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+}
+.login--heading{
+  color: white;
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  text-align: left;
+}
+
+.login--input {
+  margin-bottom: 1.5rem;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 12px;
+  width: 100%;
+}
+
+.login--label {
+  font-size: 15px;
+  margin-bottom: 10px;
+  width: 100%;
+  display: block;
+  color: #eeee;
+  text-transform: capitalize;
+  
+}
+
+.button{
+  background: #E2810F;
+  padding: 0.5rem 1rem;
+  align-self: flex-end;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+}
