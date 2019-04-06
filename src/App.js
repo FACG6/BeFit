@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 
 import './App.css'
+import Login from './Components/Pages/Login';
+import Home from './Components/Pages/Home';
 
-import Login from './Components/Pages/Login'
 import {
   library
 } from '@fortawesome/fontawesome-svg-core'
@@ -12,6 +13,10 @@ import {
   faPlusCircle
 } from '@fortawesome/free-solid-svg-icons'
 
+import {
+  FontAwesomeIcon
+} from '@fortawesome/react-fontawesome'
+
 library.add(faTrashAlt, faPlusCircle)
 
 class App extends Component {
@@ -19,8 +24,8 @@ class App extends Component {
     return (
       <div className='wrapper'>
      <Router>
-       <Route exact path='/login' component = {Login} />
-       <Route exact path='/' render ={()=> <div>Hello</div>}/>
+       <Route exact path='/login' render={()=> localStorage.login? <Redirect to='/' />: <Login />} />
+       <Route exact path='/' render ={()=> localStorage.login? <Home/>: <Redirect to='/login'/>}/>
        </Router>
        </div>
     );
