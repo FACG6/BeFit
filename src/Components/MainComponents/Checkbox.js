@@ -8,5 +8,4 @@ export default (props) => {
     <input name={name} value={name} className={inputClass} id={name} type='checkbox'></input>
     </>
   )
-
 }
