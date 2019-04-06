@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 import './App.css'
 import Login from './Components/Pages/Login';
 import Home from './Components/Pages/Home';
+import Days from './Components/Pages/Days';
 
 import {
   library
@@ -26,6 +27,7 @@ class App extends Component {
      <Router>
        <Route exact path='/login' render={()=> localStorage.login? <Redirect to='/' />: <Login />} />
        <Route exact path='/' render ={()=> localStorage.login? <Home/>: <Redirect to='/login'/>}/>
+       <Route exact path='/days' render ={()=> localStorage.login? <Days/>: <Redirect to='/login'/>}/>
        </Router>
        </div>
     );
@@ -33,3 +35,4 @@ class App extends Component {
 }
 
 export default App;
+

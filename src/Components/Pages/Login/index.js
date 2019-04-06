@@ -41,7 +41,7 @@ class Login extends Component{
         <Input onChange={this.handleChange} value={email} type='email' name='email' placeholder='Enter your email'/>
         <Input onChange={this.handleChange} value={password} type='password' name='password' placeholder='Enter your password'/>
         {loginError ? <span className='error' style={{color:'red', fontSize: 14}}>{loginError}</span>: null }
-        <Button name='Login' />
+        <Button buttonClass='login--button' name='Login' />
         {login ? <Redirect to='/' />: null}
       </form>
     </>
