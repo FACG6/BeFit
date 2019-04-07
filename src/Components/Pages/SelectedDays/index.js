@@ -28,7 +28,6 @@ export default class SelectedDays extends Component {
     const selectedDays = localStorage.days.split(",");
     return (
       <>
-        <Nav logout={true} />
         <div className="select_container">
           <div className="introductory">
             <p>Good Job</p>

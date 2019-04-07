@@ -5,7 +5,7 @@ export default (props) => {
   return (
     <div className ='item--container'>
     <label className={labelClass} htmlFor={name}>{name}</label>
-    <input name={name} value={name} className={inputClass} id={name} type='radio'></input>
+    <input name={name} value={name} className={inputClass} id={name} type='checkbox'></input>
     </div>
   )
 }

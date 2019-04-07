@@ -4,7 +4,7 @@ import Schedule from '../../MainComponents/Schedule';
 import './index.css'
 
 
-export default (props) => {
+export default () => {
   return (
     <>
     {localStorage.plan ? <Schedule />: <Welcome />}
