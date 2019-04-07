@@ -12,7 +12,6 @@ import Home from "./Components/Pages/Home";
 import Days from "./Components/Pages/Days";
 import SelectedDays from "./Components/Pages/SelectedDays";
 import Exercises from "./Components/Pages/Exercises";
-import Logout from "./Components/Pages/Logout/Logout";
 import Nav from "./Components/MainComponents/Nav";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -43,16 +42,15 @@ class App extends Component {
               exact
               path="/days"
               render={() =>
-                localStorage.days ? (
-                  <Redirect to="/select-days" />
-                ) : !localStorage.login ? (
+                // localStorage.days ? (
+                //   <Redirect to="/select-days"): />
+                !localStorage.login ? (
                   <Redirect to="/login" />
                 ) : (
                   <Days />
                 )
               }
             />
-            <Route exact path="/logout" component={Logout} />
             <Route
               exact
               path="/select-days"

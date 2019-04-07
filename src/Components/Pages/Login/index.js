@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Nav from '../../MainComponents/Nav'
 import Input from '../../MainComponents/Input'
 import Button from '../../MainComponents/Button'
 import {Redirect} from 'react-router-dom'
