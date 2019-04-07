@@ -5,7 +5,7 @@ function Input(props) {
   return (
     <>
     <label className='login--label' htmlFor={name}>{name}</label>
-    <input className='login--input' onChange={onChange}  value={value} id={name} type={type} placeholder ={placeholder} name={name}></input>
+    <input autocomplete='off' className='login--input' onChange={onChange}  value={value} id={name} type={type} placeholder ={placeholder} name={name}></input>
     </>
   )
 }

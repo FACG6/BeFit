@@ -1,26 +1,31 @@
 .welcome--container{
+  display:flex;
+  flex-direction: column;
+  justify-content: normal;
+  align-items: normal;
   margin-top: 4rem;
-  padding-left: 1rem;
   color: white;
+  padding: 2rem 1rem;
+  min-height: 45%;
+  background: rgba(0, 0, 0, .5);
 }
 
 .welcome--heading{
-     margin-bottom: 1rem;
-     color: #E2810F;
-     font-size: 1.3rem;
-     letter-spacing: .04rem;
+  margin-bottom: 1rem;
+  color: #E2810F;
+  font-size: 1.3rem;
+  letter-spacing: .04rem;
+  font-weight: unset;
 }
 
 .welcome--content{
   line-height: 150%;
-  letter-spacing: .03rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  line-height: 180%;
 }
 
 .add--icon{
-  margin-top: 1rem;
-  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.24),
-  0px 0px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.24), 0px 0px 8px rgba(0, 0, 0, 0.12);
   width: 50px !important;
   height: 50px;
   color: #E2810F;
@@ -28,7 +33,18 @@
   border-radius: 52%;
   border-color: #E2810F;
   float: right;
-  margin: 2rem 2rem 0 0;
+  margin: 2rem 1rem 0 0;
+}
+
+@media (min-width:800px){
+  .welcome--container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 3rem auto;
+  }
 }
 
 .schedule--container{
