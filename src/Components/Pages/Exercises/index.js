@@ -3,22 +3,28 @@ import ExerciseCard from "../../MainComponents/ExerciseCard";
 import { Redirect } from "react-router-dom";
 import Button from "../../MainComponents/Button";
 import "./index.css";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 const data = require("../../../utils/exercises.json").exercises;
-
 
 class Exercises extends Component {
   state = {
-    exercises: data,
     selectError: null,
-    added: null
+    added: null,
+    exercises: [],
+    clicked: ""
   };
 
-  handleCardClick = (event) => {
-    const checkbox = event.target.closest('div').querySelector('input[type="checkbox"]')
-    checkbox.toggleAttribute('checked');
-
+  componentDidMount() {
+    this.setState({ exercises: data, clicked: localStorage.clicked });
   }
+
+  handleCardClick = event => {
+    const checkbox = event.target
+      .closest("div")
+      .querySelector('input[type="checkbox"]');
+    checkbox.toggleAttribute("checked");
+  };
+
   handleExercises = event => {
     event.preventDefault();
     const nodes = event.target.querySelectorAll('input[type="checkbox"]');
@@ -33,7 +39,7 @@ class Exercises extends Component {
         const src = node.parentElement.parentElement.querySelector("img").src;
         allExercises.push({ exercise: node.name, src });
       });
-      this.setState(() => ({ selectError: null}));
+      this.setState(() => ({ selectError: null }));
       const day = localStorage.clicked;
       localStorage.setItem(day, JSON.stringify(allExercises));
       localStorage.setItem("plan", true);
@@ -42,29 +48,33 @@ class Exercises extends Component {
   };
 
   showPop = () => {
-   Swal.fire(
-     {
-       text: 'Added successfully!',
-       type: 'success',
-       timer: 1000,
-       showConfirmButton: false,
-       position: 'top-end'
-     }
-   ).then(this.setState({added: true}))
-  }
+    Swal.fire({
+      text: "Added successfully!",
+      type: "success",
+      timer: 1000,
+      showConfirmButton: false,
+      position: "top-end"
+    }).then(this.setState({ added: true }));
+  };
 
   render() {
-    const { exercises, selectError } = this.state;
+    const { exercises, selectError, clicked } = this.state;
     return (
       <>
+        <span>{clicked}</span>
         <h2 className="exercises-heading2">Select Exercises:</h2>
         <form className="cards_container" onSubmit={this.handleExercises}>
           {exercises.map((exercise, index) => (
-            <ExerciseCard onClick={this.handleCardClick} name={exercise.name} src={exercise.src} key={index} />
+            <ExerciseCard
+              onClick={this.handleCardClick}
+              name={exercise.name}
+              src={exercise.src}
+              key={index}
+            />
           ))}
           <span className="error">{selectError}</span>
           <Button buttonClass="exercise-add" name="Add" />
-          {this.state.added ? <Redirect to='/select-days' />: null}
+          {this.state.added ? <Redirect to="/select-days" /> : null}
         </form>
       </>
     );

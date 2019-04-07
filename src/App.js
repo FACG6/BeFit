@@ -15,7 +15,7 @@ import Exercises from "./Components/Pages/Exercises";
 import Nav from "./Components/MainComponents/Nav";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faTrashAlt, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+import { faTrashAlt, faPlusCircle, faEdit } from "@fortawesome/free-solid-svg-icons";
 library.add(faTrashAlt, faPlusCircle);
 
 class App extends Component {
@@ -42,8 +42,6 @@ class App extends Component {
               exact
               path="/days"
               render={() =>
-                // localStorage.days ? (
-                //   <Redirect to="/select-days"): />
                 !localStorage.login ? (
                   <Redirect to="/login" />
                 ) : (
