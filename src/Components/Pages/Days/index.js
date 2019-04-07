@@ -13,7 +13,7 @@ selected: false,
 }
 handleSubmit = (event) => {
   event.preventDefault();
-  const checkedNodes = event.target.querySelectorAll('input[type=checkbox]:checked');
+  const checkedNodes = event.target.querySelectorAll('input[type=radio]:checked');
   if(!checkedNodes.length){
     this.setState({selectedError: 'Please select at least a day'});
     return;

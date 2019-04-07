@@ -8,9 +8,9 @@ function Nav (props) {
 <nav className='nav'>
   <h1 className='logo'>BEFIT</h1>
       <div className='links'>
-        <NavLink to='/' >HOME</NavLink>
-      {logout ==='true' ? (
-        <NavLink to = '/logout'>LOG OUT</NavLink>
+        <NavLink to='/'>HOME</NavLink>
+      {logout ? (
+        <NavLink to='/logout'>LOGOUT</NavLink>
       ): null}
         
   </div>
