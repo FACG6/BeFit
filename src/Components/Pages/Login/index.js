@@ -35,7 +35,6 @@ class Login extends Component{
     const {email, password, loginError, login} = this.state;
     return (
     <>
-      <Nav logout={'false'}/>
       <form className='login-form' onSubmit={this.handleSubmit}>
         <h2 className='login--heading'>Login to your account</h2>
         <Input onChange={this.handleChange} value={email} type='email' name='email' placeholder='Enter your email'/>

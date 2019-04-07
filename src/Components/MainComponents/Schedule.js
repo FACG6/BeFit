@@ -22,8 +22,6 @@ export default class Schedule extends Component{
   }
   render() {
   return (
-  <>
-    <Nav logout={true}/>
     <div className='schedule--container'>
       <p className='schedule--day'>{this.state.today}</p> 
       {this.state.exercises ? ( 
@@ -36,7 +34,6 @@ export default class Schedule extends Component{
       <h2 className='no-exercises'>No Exercises for Today</h2>
     )}
     </div>
-  </>
   );
   }
 }

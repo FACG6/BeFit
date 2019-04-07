@@ -22,7 +22,7 @@ class Days extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const checkedNodes = event.target.querySelectorAll(
-      "input[type=radio]:checked"
+      "input[type=checkbox]:checked"
     );
     if (!checkedNodes.length) {
       this.setState({ selectedError: "Please select at least a day" });
@@ -35,10 +35,8 @@ class Days extends Component {
   };
   render() {
     const { days, selectedError, selected } = this.state;
-    console.log(this.state);
     return (
       <>
-        <Nav logout={true} />
         <form onSubmit={this.handleSubmit} className="days--container">
           <h2 className="days--heading2">
             Select all days you want to do exercises on:
@@ -55,7 +53,7 @@ class Days extends Component {
             <span style={{ color: "red", fontSize: 20 }}>{selectedError}</span>
           ) : null}
           <Button name="Done" buttonClass="days--button" />
-          {selected ? <Redirect to="/select-days" /> : null}
+          {selected ? (<Redirect to="/select-days"/>):null}
         </form>
       </>
     );

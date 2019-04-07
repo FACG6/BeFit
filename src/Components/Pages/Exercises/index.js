@@ -14,9 +14,15 @@ class Exercises extends Component {
     selectError: null,
     added: null
   };
+
+  handleCardClick = (event) => {
+    const checkbox = event.target.closest('div').querySelector('input[type="checkbox"]')
+    checkbox.toggleAttribute('checked');
+
+  }
   handleExercises = event => {
     event.preventDefault();
-    const nodes = event.target.querySelectorAll('input[type="radio"]');
+    const nodes = event.target.querySelectorAll('input[type="checkbox"]');
     const checkedNodes = [];
     nodes.forEach(node => (node.checked ? checkedNodes.push(node) : null));
     if (!checkedNodes.length) {
@@ -52,11 +58,10 @@ class Exercises extends Component {
     const { exercises, selectError } = this.state;
     return (
       <>
-        <Nav />
         <h2 className="exercises-heading2">Select Exercises:</h2>
         <form className="cards_container" onSubmit={this.handleExercises}>
           {exercises.map((exercise, index) => (
-            <ExerciseCard name={exercise.name} src={exercise.src} key={index} />
+            <ExerciseCard onClick={this.handleCardClick} name={exercise.name} src={exercise.src} key={index} />
           ))}
           <span className="error">{selectError}</span>
           <Button buttonClass="exercise-add" name="Add" />
