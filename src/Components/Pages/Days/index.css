@@ -10,8 +10,8 @@
   color: white;
   letter-spacing: .03rem;
   font-size: 1.2rem;
-  margin-bottom: 1.3rem;
   line-height: 150%;
+  margin-bottom: 1.5rem;
 }
 
 .item--container{
@@ -25,18 +25,35 @@
 .days--label{
   font-size: 1rem;
 }
+
 .days--button{
   padding: .7rem 1rem;
   width: 40%;
   border-radius: 5px;
-   background: #E2810F;
+  background: #E2810F;
   font-weight: bold;
   border: none;
   align-self: flex-end;
-  margin-top: 1.5rem
+  margin-top: 1.5rem;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.24),
+  0px 0px 8px rgba(0, 0, 0, 0.12);
+  font-size: 1.1rem;
+  outline: none;
+  cursor: pointer;
 }
 
 .days--input{
   height: 1.5rem;
   width: 1.5rem;
+}
+
+@media (min-width:800px){
+  .days--container{
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .days--button{
+    width:20%;
+  }
 }

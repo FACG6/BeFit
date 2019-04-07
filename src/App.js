@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom'
 
 import './App.css'
 import Login from './Components/Pages/Login';
@@ -26,11 +26,35 @@ class App extends Component {
     return (
       <div className='wrapper'>
      <Router>
-       <Route exact path='/login' render={()=> localStorage.login? <Redirect to='/' />: <Login />} />
-       <Route exact path='/' render ={()=> localStorage.login? <Home/>: <Redirect to='/login'/>}/>
-       <Route exact path='/days' render ={()=> localStorage.login? <Days/>: <Redirect to='/login'/>}/>
-       <Route exact path='/select-days' render ={()=> localStorage.login? <SelectedDays/>: <Redirect to='/login'/>}/>
-       </Router>
+       <Switch>
+          <Route 
+            exact 
+            path='/login' 
+            render={()=> localStorage.login? <Redirect to='/' />: <Login />} 
+          />
+          <Route 
+            exact 
+            path='/' 
+            render ={()=> localStorage.login? <Home/>: <Redirect to='/login'/>}
+          />
+          <Route 
+            exact 
+            path='/days' 
+            render ={()=> localStorage.login? <Days/>: <Redirect to='/login'/>}
+          />
+          <Route 
+            exact 
+            path='/logout'  
+            render={() => <>{localStorage.login? localStorage.clear():null}<Redirect to='/login'/></>}
+          />
+          <Route 
+            exact 
+            path='/select-days' 
+            render ={()=> localStorage.login? <SelectedDays/>: <Redirect to='/login'/>}
+          />
+
+       </Switch>
+      </Router>
        </div>
     );
   }

@@ -1,26 +1,31 @@
 .welcome--container{
+  display:flex;
+  flex-direction: column;
+  justify-content: normal;
+  align-items: normal;
   margin-top: 4rem;
-  padding-left: 1rem;
   color: white;
+  padding: 2rem 1rem;
+  min-height: 45%;
+  background: rgba(0, 0, 0, .5);
 }
 
 .welcome--heading{
-     margin-bottom: 1rem;
-     color: #E2810F;
-     font-size: 1.3rem;
-     letter-spacing: .04rem;
+  margin-bottom: 1rem;
+  color: #E2810F;
+  font-size: 1.3rem;
+  letter-spacing: .04rem;
+  font-weight: unset;
 }
 
 .welcome--content{
   line-height: 150%;
-  letter-spacing: .03rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  line-height: 180%;
 }
 
 .add--icon{
-  margin-top: 1rem;
-  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.24),
-  0px 0px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.24), 0px 0px 8px rgba(0, 0, 0, 0.12);
   width: 50px !important;
   height: 50px;
   color: #E2810F;
@@ -28,6 +33,96 @@
   border-radius: 52%;
   border-color: #E2810F;
   float: right;
-  margin: 2rem 2rem 0 0;
+  margin: 2rem 1rem 0 0;
 }
 
+@media (min-width:800px){
+  .welcome--container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 3rem auto;
+  }
+}
+
+.schedule--container{
+      margin-top: 3rem;
+}
+
+.schedule--day{
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(0deg, #5AA9D6, #5AA9D6),
+  #0077BA;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.24),
+  0px 0px 8px rgba(0, 0, 0, 0.12);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  padding:1rem;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+
+.exercises-list{
+  margin-top: 2rem;
+}
+ 
+.exercise--item{
+  width: 85%;
+  margin: 1.2rem auto;
+  display: flex;
+  justify-content: space-between;
+  background: #ffff;
+  padding: .5rem;
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s;
+  position: relative;
+}
+
+.exercise--item:hover{
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+  0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.card--heading{
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: #000000;
+  align-self: center;
+}
+
+.exercise--item img{
+  width: 120px;
+  height: 100px;
+  border-radius: 5px;
+}
+
+.delete{
+  position: absolute;
+  color: #c51818;
+  left: 3%;
+  bottom: 80%;
+  font-size: .9rem;
+}
+
+.exercise--heading3{
+  width: 85%;
+  margin: 2rem auto 0 auto;
+  font-size: 1.3rem;
+  color: #fff;
+  letter-spacing: .1rem;
+}
+
+@media (min-width:800px){
+  .schedule--container{
+    width: 60%;
+    margin: 3rem auto;
+    background: rgba(0, 0, 0, .5);
+    padding-bottom: 2rem;
+  }
+}
