@@ -68,11 +68,12 @@
 
 .exercises-list{
   margin-top: 2rem;
+  padding-bottom: 1rem;
 }
  
 .exercise--item{
   width: 85%;
-  margin: 1.2rem auto;
+  margin: 1.2rem auto 0 auto;
   display: flex;
   justify-content: space-between;
   background: #ffff;
@@ -90,7 +91,7 @@
 }
 
 .card--heading{
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
   color: #000000;
   align-self: center;
