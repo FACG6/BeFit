@@ -6,13 +6,20 @@ import Swal from "sweetalert2";
 
 export default class SelectedDays extends Component {
   state = {
-    finished: false
+    finished: false,
+    selectedDays: [],
+    showEdit: []
   };
 
-  handleClick = (event)=> {
+  componentDidMount() {
+    const selectedDays = JSON.parse(localStorage.days);
+    this.setState({ selectedDays });
+  }
+
+  handleClick = () => {
     const selectedDays = JSON.parse(localStorage.days);
     if (selectedDays.every(day => localStorage[day])) {
-      this.setState({finished: true})
+      this.setState({ finished: true });
     } else {
       Swal.fire({
         type: "error",
@@ -21,10 +28,10 @@ export default class SelectedDays extends Component {
         timer: 2000
       });
     }
-  }
+  };
 
   render() {
-    const selectedDays = JSON.parse(localStorage.days);
+    const { selectedDays } = this.state;
     return (
       <>
         <div className="select_container">

@@ -1,12 +1,12 @@
 import React from "react";
 import { withRouter, NavLink } from "react-router-dom";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
-function Nav (props) {
+function Nav(props) {
   const loggedIn = localStorage.login;
   function handleLogout() {
     Swal.fire({
-      type: 'warning',
+      type: "warning",
       title: "Sure?",
       text: "Your Schedule will be cleared when you logout!",
       showConfirmButton: true,
@@ -15,23 +15,23 @@ function Nav (props) {
     }).then(res => {
       if (res.value) {
         localStorage.clear();
-        props.history.push('/login')
+        props.history.push("/login");
       }
     });
-  };
-     return (
-      <nav className="nav">
-        <h1 className="logo">BeFit</h1>
-        <div className="links">
-          <NavLink to="/">HOME</NavLink>
-          {loggedIn ? (
-            <a href="#" onClick={handleLogout}>
-              LOGOUT
-            </a>
-          ) : null}
-        </div>
-      </nav>
-    );
+  }
+  return (
+    <nav className="nav">
+      <h1 className="logo">BeFit</h1>
+      <div className="links">
+        <NavLink to="/">HOME</NavLink>
+        {loggedIn ? (
+          <a href="#" onClick={handleLogout}>
+            LOGOUT
+          </a>
+        ) : null}
+      </div>
+    </nav>
+  );
 }
 
 export default withRouter(Nav);
