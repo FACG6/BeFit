@@ -31,7 +31,7 @@ export default class Schedule extends Component{
 
   confirmPopUp = (name) => {
     Swal.fire({
-      title: 'warning',
+      type: 'warning',
       text: 'Are you sure you want to delete this exercise?', 
       showCancelButton: true,
       showConfirmButton: true,
