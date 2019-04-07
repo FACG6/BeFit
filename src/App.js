@@ -16,10 +16,6 @@ import {
   faPlusCircle
 } from '@fortawesome/free-solid-svg-icons'
 
-import {
-  FontAwesomeIcon
-} from '@fortawesome/react-fontawesome'
-
 library.add(faTrashAlt, faPlusCircle)
 
 class App extends Component {
@@ -41,7 +37,7 @@ class App extends Component {
           <Route 
             exact 
             path='/days' 
-            render ={()=> localStorage.login? <Days/>: <Redirect to='/login'/>}
+            render ={()=> localStorage.days? <Redirect to='/select-days' />: !localStorage.login? <Redirect to='/login'/>:<Days/>}
           />
           <Route 
             exact 

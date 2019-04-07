@@ -16,6 +16,8 @@
 .cards{
   padding: 1rem;
   font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .day--card{
@@ -34,19 +36,16 @@
   padding: .8rem 1.6rem;
   border-radius: 5px;
   display: flex;
-  margin-right: 1rem;
   background: #E2810F;
   border: none;
   outline: none;
   font-size: 1rem;
+  align-self: flex-end;
+  margin: 1.5rem 0;
+
+
 }
 
-.select_container a{
-  display: flex;
-  justify-content: flex-end;
-  padding-bottom: 2rem;
-  text-decoration: none;
-}
 
 @media (min-width: 800px){
   .select_container{
