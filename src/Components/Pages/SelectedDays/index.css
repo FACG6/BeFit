@@ -1,0 +1,58 @@
+.select_container{
+  min-height: 345px;
+  background: rgba(0, 0, 0, .5);
+  margin-top: 10%;
+}
+
+.introductory{
+  letter-spacing: .04rem;
+  font-size: 1.2rem;
+  color: white;
+  line-height: 150%;
+  /* margin-top: 1rem; */
+  padding: 1rem;
+}
+
+.cards{
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.day--card{
+  background: white;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+}
+
+.add-icon {
+  font-size: 1.9rem
+}
+
+.add-exercise{
+  padding: .8rem 1.6rem;
+  border-radius: 5px;
+  display: flex;
+  margin-right: 1rem;
+  background: #E2810F;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.select_container a{
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 2rem;
+  text-decoration: none;
+}
+
+@media (min-width: 800px){
+  .select_container{
+    width: 40%;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+}

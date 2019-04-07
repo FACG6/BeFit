@@ -15,11 +15,11 @@ class DayContainer extends Component {
      
   }
   render() {
-    const { name} = this.props;
+    const { name, iconClass } = this.props;
   return (
     <div className='day--card'>
         <span>{name}</span>
-        <FontAwesomeIcon key={name} id={name} icon='plus-circle' onClick={()=>this.handleClick(name)}/>
+        <FontAwesomeIcon className={iconClass} key={name} id={name} icon='plus-circle' onClick={()=>this.handleClick(name)}/>
          {this.state.added ? (<Redirect to='/exercises'/>): null}
     </div>
   );
