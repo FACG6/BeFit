@@ -21,7 +21,6 @@ library.add(faTrashAlt, faPlusCircle)
 class App extends Component {
   render() {
     return (
-      <div className='wrapper'>
      <Router>
        <Switch>
           <Route 
@@ -29,8 +28,8 @@ class App extends Component {
             path='/login' 
             render={()=> localStorage.login? <Redirect to='/' />: <Login />} 
           />
-          <Route 
-            exact 
+          <Route  
+            exact
             path='/' 
             render ={()=> localStorage.login? <Home/>: <Redirect to='/login'/>}
           />
@@ -54,9 +53,12 @@ class App extends Component {
             path='/exercises' 
             render ={()=> localStorage.login? <Exercises/>: <Redirect to='/login'/>}
           />
+          <Route 
+            render={()=> <h1 style={{color: 'white', textAlign:'center', margin:'5rem 0'}}>Page Not Found</h1>}
+          />
+
        </Switch>
       </Router>
-       </div>
     );
   }
 }

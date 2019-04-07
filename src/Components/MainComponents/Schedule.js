@@ -12,6 +12,7 @@ export default class Schedule extends Component{
   componentDidMount(){
     const dayIndex = new Date().getDay();
     const today = this.state.days[dayIndex];
+    this.setState({today})
     if (localStorage[today]) {
       this.setState({
         exercises: JSON.parse(localStorage[today]),
@@ -32,7 +33,7 @@ export default class Schedule extends Component{
       </div>
     </>
     ) : (
-      <h2>No Exercises for Today</h2>
+      <h2 className='no-exercises'>No Exercises for Today</h2>
     )}
     </div>
   </>

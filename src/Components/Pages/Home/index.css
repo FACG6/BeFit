@@ -111,7 +111,7 @@
   font-size: .9rem;
 }
 
-.exercise--heading3{
+.exercise--heading3, .no-exercises{
   width: 85%;
   margin: 2rem auto 0 auto;
   font-size: 1.3rem;
