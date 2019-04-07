@@ -30,7 +30,8 @@ class Exercises extends Component {
     } )
      this.setState(() => ({selectError: null, added: true}));
     const day = localStorage.clicked;
-    localStorage.setItem(day, JSON.stringify(allExercises))
+    localStorage.setItem(day, JSON.stringify(allExercises));
+    localStorage.setItem('plan', true);
   }
   }
 
