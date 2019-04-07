@@ -3,7 +3,6 @@ import ExerciseCard from "../../MainComponents/ExerciseCard";
 import { Redirect } from "react-router-dom";
 import Button from "../../MainComponents/Button";
 import "./index.css";
-import Nav from "../../MainComponents/Nav";
 import Swal from 'sweetalert2';
 const data = require("../../../utils/exercises.json").exercises;
 

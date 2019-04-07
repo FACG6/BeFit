@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Checkbox from "../../MainComponents/Checkbox";
 import Button from "../../MainComponents/Button";
 import { Redirect } from "react-router-dom";
-import Nav from "../../MainComponents/Nav";
 import "./index.css";
 
 class Days extends Component {
@@ -28,10 +27,19 @@ class Days extends Component {
       this.setState({ selectedError: "Please select at least a day" });
       return;
     }
+    if(!localStorage.days){
     const selectedDays = [];
     checkedNodes.forEach(node => selectedDays.push(node.id));
-    localStorage.setItem("days", selectedDays.join(","));
+    localStorage.setItem("days", JSON.stringify(selectedDays));
     this.setState({ selectedError: null, selected: true });
+    } else {
+      const alreadySelectedDays = JSON.parse(localStorage.days);
+      checkedNodes.forEach(day=> {
+        if(alreadySelectedDays.every(el=>day.id !==el)) alreadySelectedDays.push(day.id);
+        localStorage.setItem('days', JSON.stringify(alreadySelectedDays));
+        this.setState({ selectedError: null, selected: true });
+      })
+    }
   };
   render() {
     const { days, selectedError, selected } = this.state;

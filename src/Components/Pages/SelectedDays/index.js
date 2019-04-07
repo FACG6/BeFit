@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import DayContainer from "../../MainComponents/DayContainer";
 import { Redirect } from "react-router-dom";
-import Nav from "../../MainComponents/Nav";
 import "./index.css";
 import Swal from "sweetalert2";
 
@@ -11,7 +10,7 @@ export default class SelectedDays extends Component {
   };
 
   handleClick = (event)=> {
-    const selectedDays = localStorage.days.split(",");
+    const selectedDays = JSON.parse(localStorage.days);
     if (selectedDays.every(day => localStorage[day])) {
       this.setState({finished: true})
     } else {
@@ -25,7 +24,7 @@ export default class SelectedDays extends Component {
   }
 
   render() {
-    const selectedDays = localStorage.days.split(",");
+    const selectedDays = JSON.parse(localStorage.days);
     return (
       <>
         <div className="select_container">
