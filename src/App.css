@@ -1,18 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Podkova');
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Podkova'
 }
 
-.wrapper {
-  background: url('./Group.png');
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('./imgs/bodybuilding.jpeg');
   background-position: center;
   background-size: cover;
   width: 100%;
   height: auto;
-  min-height: 100vh
+  min-height: 100vh;
 }
 
 .nav {
@@ -41,7 +43,3 @@
   color: #E2810F;
   letter-spacing: 0.3rem;
 }
-
-
-
-
