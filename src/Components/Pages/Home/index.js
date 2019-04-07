@@ -6,7 +6,7 @@ import './index.css'
 export default (props) => {
   return (
     <>
-    <Nav />
+    <Nav logout={true}/>
     {localStorage.plan ? <div>Plan</div>: <Welcome />}
     </>
   )

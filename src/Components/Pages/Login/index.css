@@ -1,59 +1,38 @@
 
-.wrapper{
-  background: url('./Group.png');
-  background-position: center;
-  background-size: cover;
-  width: 100%;
-  min-height: 100vh;
-}
-
-.nav{
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  height: 40px;
-}
-.links a {
-  text-decoration: none;
-  color: white;
-}
-
-.logo{
-  color: #E2810F;
-  letter-spacing: 2px;
-
-}
-
 .login-form{
-    padding: 1rem 2rem;
-    margin: 7rem auto;
+    padding: 2rem 1.3rem;
+    margin: 15% auto 0 auto;
     width: 100%;
-    display: -webkit-flex;
     display: flex;
-    -webkit-flex-direction: column;
     flex-direction: column;
-    -webkit-align-items: center;
-    align-items: center;
+    align-items: flex-start;
     background: rgba(0, 0, 0, 0.4);
+    min-height: 60%;
 }
 .login--heading{
   color: white;
   margin-bottom: 2rem;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   text-align: left;
+  letter-spacing: .1rem;
+  line-height: 150%;
 }
 
 .login--input {
-  margin-bottom: 1.5rem;
-  padding: 10px;
+  margin-bottom: 2rem;
+  padding: 1rem;
   border-radius: 5px;
   border: none;
-  font-size: 12px;
+  font-size: 1rem;
   width: 100%;
+  background: #FFFFFF;
+  outline: none;
 }
 
 .login--label {
-  font-size: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: .06rem;
   margin-bottom: 10px;
   width: 100%;
   display: block;
@@ -64,9 +43,24 @@
 
 .login--button{
   background: #E2810F;
-  padding: 0.5rem 1rem;
+  padding: .8rem 1.5rem;
   align-self: flex-end;
-  margin-top: 10px;
   border: none;
+  background: linear-gradient(0deg, #E2810F, #E2810F), #E1C389;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.24), 0px 0px 8px rgba(0, 0, 0, 0.12);
   border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.login--button:hover{
+  background: #ffb93adb;
+}
+
+@media(min-width: 700px){
+  .login-form{
+    width: 50%;
+    margin: 3rem auto;
+  }
 }

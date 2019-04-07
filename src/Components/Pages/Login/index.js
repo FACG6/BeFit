@@ -40,7 +40,7 @@ class Login extends Component{
         <h2 className='login--heading'>Login to your account</h2>
         <Input onChange={this.handleChange} value={email} type='email' name='email' placeholder='Enter your email'/>
         <Input onChange={this.handleChange} value={password} type='password' name='password' placeholder='Enter your password'/>
-        {loginError ? <span className='error' style={{color:'red', fontSize: 14}}>{loginError}</span>: null }
+        {loginError ? <span className='error' style={{color:'red', fontSize: 16}}>{loginError}</span>: null }
         <Button buttonClass='login--button' name='Login' />
         {login ? <Redirect to='/' />: null}
       </form>
