@@ -5,6 +5,7 @@ import './App.css'
 import Login from './Components/Pages/Login';
 import Home from './Components/Pages/Home';
 import Days from './Components/Pages/Days';
+import SelectedDays from './Components/Pages/SelectedDays';
 
 import {
   library
@@ -46,6 +47,12 @@ class App extends Component {
             path='/logout'  
             render={() => <>{localStorage.login? localStorage.clear():null}<Redirect to='/login'/></>}
           />
+          <Route 
+            exact 
+            path='/select-days' 
+            render ={()=> localStorage.login? <SelectedDays/>: <Redirect to='/login'/>}
+          />
+
        </Switch>
       </Router>
        </div>
