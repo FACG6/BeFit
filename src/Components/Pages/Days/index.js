@@ -34,7 +34,7 @@ render (){
     {days.map((day, index) => < Checkbox key={index} labelClass='days--label' inputClass='days--input' name={day}/>)}
     {selectedError ? <span>{selectedError}</span> : null}
     <Button name='Done' buttonClass='days--button' />
-    {selected ? <Redirect to='/select-days'/>:null}
+    {selected ? <Redirect to='/days'/>:null}
   </form>
   </>
   )
