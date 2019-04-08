@@ -34,9 +34,13 @@ class Exercises extends Component {
 
   handleExercises = event => {
     event.preventDefault();
-    const nodes = event.target.querySelectorAll('input[type="checkbox"]');
+    const nodes = event.target.querySelectorAll('input[type=checkbox]');
     const checkedNodes = [];
     nodes.forEach(node => (node.checked ? checkedNodes.push(node) : null));
+    if(!checkedNodes.length){
+      this.setState({selectError: 'Select at least one exercise!'});
+      return;
+    }
     const allExercises = [];
     checkedNodes.forEach(node => {
       const src = node.parentElement.parentElement.querySelector("img").src;
@@ -55,6 +59,7 @@ class Exercises extends Component {
         "daysDone",
         JSON.stringify(JSON.parse(localStorage.daysDone).concat(day))
       );
+      localStorage.setItem("plan", true);
     }
     this.showPop();
   };
@@ -76,19 +81,13 @@ class Exercises extends Component {
       showCancelButton: true
     }).then(response => {
       if (response.value) {
-        const allExercises = JSON.parse(localStorage[this.state.clicked]);
-        if (allExercises.length === 1) {
-          this.setState({
-            selectError: "You should have at least one exercise in your plan"
-          });
-          return;
-        }
-        this.unCheck(allExercises, name);
+        this.unCheck(name);
       }
     });
   };
 
-  unCheck = (allExercises, name) => {
+  unCheck = (name) => {
+    const allExercises = JSON.parse(localStorage[this.state.clicked]);
     const deleteIndex = allExercises.indexOf(
       allExercises.find(exercise => exercise.exercise === name)
     );
@@ -109,7 +108,7 @@ class Exercises extends Component {
         <span className="clicked-date">{clicked}</span>
         <h2 className="exercises-heading2">Select Exercises:</h2>
         <p className="exercises-warning">
-          Delete any exercises you want before adding new exericses!
+          If you only want to delete an exercise, click on it and then click back button!
         </p>
         <form className="cards_container" onSubmit={this.handleExercises}>
           {exercises.map((exercise, index) =>

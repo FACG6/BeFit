@@ -1,25 +1,22 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from 'react-router-dom';
 
 class DayContainer extends Component {
   state = {
     clicked: null,
     added: null, 
-    daysDone: JSON.parse(localStorage.daysDone),
   };
   handleClick = name => {
     this.setState({ clicked: [name], added: true });
     localStorage.setItem("clicked", [name]);
   };
   render() {
-    const {daysDone} = this.state;
     const { name, iconClass, deleteDay } = this.props;
     return (
       <div className="day--card">
         <span>{name}</span>
-        {!daysDone || !daysDone.includes(name)? <FontAwesomeIcon
+        {!localStorage[name] || !JSON.parse(localStorage[name]).length? <FontAwesomeIcon
           className={iconClass}
           key={name}
           id={name}
