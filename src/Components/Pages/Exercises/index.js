@@ -11,11 +11,16 @@ class Exercises extends Component {
     selectError: null,
     added: null,
     exercises: [],
-    clicked: ""
+    clicked: '',
+    alreadySelectedExercises: [],
   };
 
   componentDidMount() {
-    this.setState({ exercises: data, clicked: localStorage.clicked });
+    const clickedDay = localStorage.clicked;
+    if(localStorage[clickedDay]){
+    this.setState({alreadySelectedExercises: JSON.parse(localStorage[clickedDay])})
+    } 
+    this.setState({ exercises: data, clicked: clickedDay});
   }
 
   handleCardClick = event => {
@@ -30,10 +35,10 @@ class Exercises extends Component {
     const nodes = event.target.querySelectorAll('input[type="checkbox"]');
     const checkedNodes = [];
     nodes.forEach(node => (node.checked ? checkedNodes.push(node) : null));
-    if (!checkedNodes.length) {
-      this.setState(() => ({ selectError: "Select at least one exercise!" }));
-      return;
-    } else {
+    // if (!checkedNodes.length) {
+    //   this.setState(() => ({ selectError: "Select at least one exercise!" }));
+    //   return;
+    // } else {
       const allExercises = [];
       checkedNodes.forEach(node => {
         const src = node.parentElement.parentElement.querySelector("img").src;
@@ -41,10 +46,14 @@ class Exercises extends Component {
       });
       this.setState(() => ({ selectError: null }));
       const day = localStorage.clicked;
-      localStorage.setItem(day, JSON.stringify(allExercises));
-      localStorage.setItem("plan", true);
+      if(localStorage[day]){
+        localStorage.setItem(day, JSON.stringify(JSON.parse(localStorage[day]).concat(allExercises)));
+      } else{
+        localStorage.setItem(day, JSON.stringify(allExercises));
+        localStorage.setItem('daysDone', JSON.stringify(JSON.parse(localStorage.daysDone).concat(day)));
+      }
       this.showPop();
-    }
+    
   };
 
   showPop = () => {
@@ -57,15 +66,47 @@ class Exercises extends Component {
     }).then(this.setState({ added: true }));
   };
 
+  confirmUncheck = (name) => {
+    Swal.fire({
+      text: "Are you sure you want to uncheck this exercise?",
+      showConfirmButton: true,
+      showCancelButton: true,
+    }).then(response=>{
+      if(response.value) this.unCheck(name);
+    });
+
+  }
+
+  unCheck = (name) => {
+    const allExercises = JSON.parse(localStorage[this.state.clicked]);
+    const deleteIndex = allExercises.indexOf(
+      allExercises.find(exercise => exercise.exercise === name)
+    );
+    allExercises.splice(deleteIndex, 1);
+    localStorage.setItem(localStorage.clicked, JSON.stringify(allExercises));
+    this.setState({alreadySelectedExercises:allExercises})
+  }
+
   render() {
-    const { exercises, selectError, clicked } = this.state;
+    const { exercises, selectError, clicked, alreadySelectedExercises } = this.state;
     return (
       <>
-        <span>{clicked}</span>
+        <span class='clicked-date'>{clicked}</span>
         <h2 className="exercises-heading2">Select Exercises:</h2>
         <form className="cards_container" onSubmit={this.handleExercises}>
           {exercises.map((exercise, index) => (
-            <ExerciseCard
+          alreadySelectedExercises.find(selected=>selected.exercise===exercise.name) ?
+           <ExerciseCard 
+              done={true}
+              onClick={this.handleCardClick}
+              name={exercise.name}
+              src={exercise.src}
+              key={index}
+              unCheck={()=>this.confirmUncheck(exercise.name)}
+            />
+            : 
+            <ExerciseCard 
+              done={false}
               onClick={this.handleCardClick}
               name={exercise.name}
               src={exercise.src}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Card from "./Card";
 import Swal from "sweetalert2";
+import {Link} from 'react-router-dom';
 
 export default class Schedule extends Component {
   state = {
@@ -52,12 +53,14 @@ export default class Schedule extends Component {
   render() {
     return (
       <div className="schedule--container">
-        <p className="schedule--day">{this.state.today}</p>
+        <div className='top-section'>
+          <span className="schedule--day">{this.state.today}</span>
+          <Link to='/select-days'><span className='edit-plan'>Edit Plan</span></Link>
+        </div>
         {this.state.exercises ? (
           <>
             <h3 className="exercise--heading3">Your Exercises for today:</h3>
             <div className="exercises-list">
-              {" "}
               {this.state.exercises.map((exercise, index) => (
                 <Card
                   cardClass="exercise--item"

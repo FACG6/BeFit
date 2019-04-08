@@ -15,8 +15,8 @@ import Exercises from "./Components/Pages/Exercises";
 import Nav from "./Components/MainComponents/Nav";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faTrashAlt, faPlusCircle, faEdit } from "@fortawesome/free-solid-svg-icons";
-library.add(faTrashAlt, faPlusCircle);
+import { faTrashAlt, faPlusCircle, faEdit, faCheckCircle} from "@fortawesome/free-solid-svg-icons";
+library.add(faTrashAlt, faPlusCircle, faEdit, faCheckCircle);
 
 class App extends Component {
   render() {
