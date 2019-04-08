@@ -3,13 +3,12 @@ import DayContainer from "../../MainComponents/DayContainer";
 import { Redirect, Link } from "react-router-dom";
 import "./index.css";
 import Swal from "sweetalert2";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class SelectedDays extends Component {
   state = {
     finished: false,
     selectedDays: [],
-    dayDone: null,
+    dayDone: null
   };
 
   componentDidMount() {
@@ -31,17 +30,23 @@ export default class SelectedDays extends Component {
       });
     }
   };
-  deleteDay = (event) => {
-    const name = event.target.closest('div').querySelector('span').textContent;
+  deleteDay = event => {
+    const name = event.target.closest("div").querySelector("span").textContent;
     const days = JSON.parse(localStorage.days);
+
+    const dayIndex = days.indexOf(name);
+    days.splice(dayIndex, 1);
+    localStorage.setItem("days", JSON.stringify(days));
+
     const daysDone = JSON.parse(localStorage.daysDone);
-    daysDone.splice(name, 1);
-    days.splice(name, 1);
+    const daysDoneIndex = daysDone.indexOf(name);
+    daysDone.splice(daysDoneIndex, 1);
+    localStorage.setItem("daysDone", JSON.stringify(daysDone));
+
     localStorage.removeItem(name);
-    localStorage.setItem('daysDone', JSON.stringify(daysDone));
-    localStorage.setItem('days', JSON.stringify(days));
-    this.setState({selectedDays:days})
-  }
+
+    this.setState({ selectedDays: days });
+  };
 
   render() {
     const { selectedDays } = this.state;
@@ -49,12 +54,19 @@ export default class SelectedDays extends Component {
       <>
         <div className="select_container">
           <div className="introductory">
-            <Link to='/days'><span className= 'add-day'>Add Day</span></Link>
+            <Link to="/days">
+              <span className="add-day">Add Day</span>
+            </Link>
             <p>Now click the bellow icons to add your exercises</p>
           </div>
           <div className="cards">
             {selectedDays.map((day, index) => (
-              <DayContainer deleteDay={this.deleteDay} iconClass="add-icon" key={index} name={day} />
+              <DayContainer
+                deleteDay={this.deleteDay}
+                iconClass="add-icon"
+                key={index}
+                name={day}
+              />
             ))}
             <button onClick={this.handleClick} className="add-exercise">
               Finished
