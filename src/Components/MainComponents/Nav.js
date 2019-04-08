@@ -23,7 +23,6 @@ function Nav(props) {
     <nav className="nav">
       <h1 className="logo">BeFit</h1>
       <div className="links">
-        <NavLink to="/">HOME</NavLink>
         {loggedIn ? (
           <a href="#" onClick={handleLogout}>
             LOGOUT
