@@ -9,8 +9,13 @@
   font-size: 1.2rem;
   color: white;
   line-height: 150%;
-  /* margin-top: 1rem; */
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.introductory p {
+  margin-top: 1.5rem;
 }
 
 .cards{
@@ -42,8 +47,25 @@
   font-size: 1rem;
   align-self: flex-end;
   margin: 1.5rem 0;
+}
 
+.fa-edit{
+  position: absolute;
+  right: 30%;
+}
 
+.introductory a{
+  text-decoration: none;
+  color: #E2810F;
+  width: 34%;
+  align-self: flex-end;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.introductory a:hover{
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 

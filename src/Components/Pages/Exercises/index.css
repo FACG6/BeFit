@@ -61,6 +61,29 @@
   font-size: 1.2rem;
 }
 
+.clicked-date{
+   height: 50px;
+   background: linear-gradient(0deg, #5AA9D6, #5AA9D6),
+   #0077BA;
+   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.24),
+   0px 0px 8px rgba(0, 0, 0, 0.12);
+   border-radius: 2px;
+   display: flex;
+   align-items: center;
+   padding-left: 1rem;
+   margin-top: 2rem;
+   font-size: 1.2rem;
+}
+
+.fa-check-circle{
+  position: absolute;
+  right: 1%;
+  top: 5%;
+  height: 1.4rem;
+  width: 1.5rem !important;
+  color: green;
+}
+
 @media (min-width: 800px){
   .cards_container{
     width: 50%;

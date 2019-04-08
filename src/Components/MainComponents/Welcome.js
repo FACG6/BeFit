@@ -10,7 +10,6 @@ export default () => {
         Start managing your exercises by adding a schedule
       </p>
       <Link to="/days">
-        {" "}
         <FontAwesomeIcon className="add--icon" icon="plus-circle" />
       </Link>
     </div>

@@ -51,8 +51,7 @@
       margin-top: 3rem;
 }
 
-.schedule--day{
-  width: 100%;
+.top-section{
   height: 50px;
   background: linear-gradient(0deg, #5AA9D6, #5AA9D6),
   #0077BA;
@@ -61,9 +60,24 @@
   border-radius: 2px;
   display: flex;
   align-items: center;
+}
+
+.schedule--day, .top-section a{
+    width:50%;
+  /* align-items: center; */
   padding:1rem;
   font-size: 1.3rem;
   text-transform: uppercase;
+  text-decoration: none;
+  color: #000000;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.top-section a:hover{
+  color: #E2810F;
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .exercises-list{

@@ -27,18 +27,21 @@ class Days extends Component {
       this.setState({ selectedError: "Please select at least a day" });
       return;
     }
-    if(!localStorage.days){
-    const selectedDays = [];
-    checkedNodes.forEach(node => selectedDays.push(node.id));
-    localStorage.setItem("days", JSON.stringify(selectedDays));
-    this.setState({ selectedError: null, selected: true });
+    if (!localStorage.days) {
+      const selectedDays = [];
+      checkedNodes.forEach(node => selectedDays.push(node.id));
+      localStorage.setItem("days", JSON.stringify(selectedDays));
+      localStorage.setItem("daysDone", JSON.stringify([]));
+      this.setState({ selectedError: null, selected: true });
+
     } else {
       const alreadySelectedDays = JSON.parse(localStorage.days);
-      checkedNodes.forEach(day=> {
-        if(alreadySelectedDays.every(el=>day.id !==el)) alreadySelectedDays.push(day.id);
-        localStorage.setItem('days', JSON.stringify(alreadySelectedDays));
+      checkedNodes.forEach(day => {
+        if (alreadySelectedDays.every(el => day.id !== el))
+          alreadySelectedDays.push(day.id);
+        localStorage.setItem("days", JSON.stringify(alreadySelectedDays));
         this.setState({ selectedError: null, selected: true });
-      })
+      });
     }
   };
   render() {
@@ -61,7 +64,7 @@ class Days extends Component {
             <span style={{ color: "red", fontSize: 20 }}>{selectedError}</span>
           ) : null}
           <Button name="Done" buttonClass="days--button" />
-          {selected ? (<Redirect to="/select-days"/>):null}
+          {selected ? <Redirect to="/select-days" /> : null}
         </form>
       </>
     );
