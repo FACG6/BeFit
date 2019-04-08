@@ -135,7 +135,7 @@ class Exercises extends Component {
           )}
           <span className="error">{selectError}</span>
           <div className="button-container">
-            <Button buttonClass="exercise-add" name="Edit" />
+            <Button buttonClass="exercise-add" name="Done" />
             <Link to="/select-days">
               <Button buttonClass="exercise-add" name="Back" />
             </Link>
