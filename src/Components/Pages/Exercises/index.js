@@ -35,10 +35,6 @@ class Exercises extends Component {
     const nodes = event.target.querySelectorAll('input[type="checkbox"]');
     const checkedNodes = [];
     nodes.forEach(node => (node.checked ? checkedNodes.push(node) : null));
-    // if (!checkedNodes.length) {
-    //   this.setState(() => ({ selectError: "Select at least one exercise!" }));
-    //   return;
-    // } else {
       const allExercises = [];
       checkedNodes.forEach(node => {
         const src = node.parentElement.parentElement.querySelector("img").src;
