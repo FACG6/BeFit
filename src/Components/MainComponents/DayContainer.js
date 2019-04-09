@@ -7,7 +7,7 @@ class DayContainer extends Component {
     clicked: null,
     added: null, 
   };
-  handleClick = event => {
+  handleClick = () => {
     this.setState({ clicked: [this.props.name], added: true });
     localStorage.setItem("clicked", [this.props.name]);
   };
