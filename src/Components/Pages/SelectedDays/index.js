@@ -51,7 +51,6 @@ export default class SelectedDays extends Component {
   render() {
     const { selectedDays } = this.state;
     return (
-      <>
         <div className="select_container">
           <div className="introductory">
             <Link to="/days">
@@ -74,7 +73,6 @@ export default class SelectedDays extends Component {
             {this.state.finished ? <Redirect to="/" /> : null}
           </div>
         </div>
-      </>
     );
   }
 }

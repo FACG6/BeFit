@@ -47,7 +47,6 @@ class Days extends Component {
   render() {
     const { days, selectedError, selected } = this.state;
     return (
-      <>
         <form onSubmit={this.handleSubmit} className="days--container">
           <h2 className="days--heading2">
             Select all days you want to do exercises on:
@@ -66,7 +65,6 @@ class Days extends Component {
           <Button name="Done" buttonClass="days--button" />
           {selected ? <Redirect to="/select-days" /> : null}
         </form>
-      </>
     );
   }
 }
