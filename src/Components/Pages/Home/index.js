@@ -4,5 +4,5 @@ import Schedule from "../../MainComponents/Schedule";
 import "./index.css";
 
 export default () => {
-  return <>{localStorage.plan ? <Schedule /> : <Welcome />}</>;
+  return localStorage.plan ? <Schedule /> : <Welcome />;
 };

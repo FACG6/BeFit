@@ -23,7 +23,7 @@ class Login extends Component {
     event.preventDefault();
     const { email, password, originEmail, originPass } = this.state;
     if (email === originEmail && password === originPass) {
-      this.setState(() => ({ loginError: null, login: true }));
+      this.setState({ loginError: null, login: true });
       localStorage.setItem("login", true);
     } else {
       this.setState({ loginError: "Your password or email is invalid" });
