@@ -21,7 +21,7 @@ class DayContainer extends Component {
           key={name}
           id={name}
           icon="plus-circle"
-          onClick={() => this.handleClick(name)}
+          onClick={this.handleClick}
         />: (
         <>
           <FontAwesomeIcon onClick={this.handleClick} icon ='edit'/>
