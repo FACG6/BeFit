@@ -7,9 +7,9 @@ class DayContainer extends Component {
     clicked: null,
     added: null, 
   };
-  handleClick = name => {
-    this.setState({ clicked: [name], added: true });
-    localStorage.setItem("clicked", [name]);
+  handleClick = () => {
+    this.setState({ clicked: [this.props.name], added: true });
+    localStorage.setItem("clicked", [this.props.name]);
   };
   render() {
     const { name, iconClass, deleteDay } = this.props;
@@ -21,10 +21,10 @@ class DayContainer extends Component {
           key={name}
           id={name}
           icon="plus-circle"
-          onClick={() => this.handleClick(name)}
+          onClick={this.handleClick}
         />: (
         <>
-          <FontAwesomeIcon onClick={()=>this.handleClick(name)} icon ='edit'/>
+          <FontAwesomeIcon onClick={this.handleClick} icon ='edit'/>
           <FontAwesomeIcon onClick={deleteDay} icon ='trash-alt'/>
         </>
         )}

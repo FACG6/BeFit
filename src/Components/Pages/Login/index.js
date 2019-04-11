@@ -23,7 +23,7 @@ class Login extends Component {
     event.preventDefault();
     const { email, password, originEmail, originPass } = this.state;
     if (email === originEmail && password === originPass) {
-      this.setState(() => ({ loginError: null, login: true }));
+      this.setState({ loginError: null, login: true });
       localStorage.setItem("login", true);
     } else {
       this.setState({ loginError: "Your password or email is invalid" });
@@ -32,7 +32,6 @@ class Login extends Component {
   render() {
     const { email, password, loginError, login } = this.state;
     return (
-      <>
         <form className="login-form" onSubmit={this.handleSubmit}>
           <h2 className="login--heading">Login to your account</h2>
           <Input
@@ -57,7 +56,6 @@ class Login extends Component {
           <Button buttonClass="login--button" name="Login" />
           {login ? <Redirect to="/" /> : null}
         </form>
-      </>
     );
   }
 }
